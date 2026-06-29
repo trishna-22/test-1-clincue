@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intravenous Cannulation Revision - Test 1 Clinicue</title>
+    <meta name="description" content="Quick multimedia-rich revision guide for the IV Cannulation procedure. Learn key steps with audio, pictures and video.">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="glass">
+        <div class="container navbar">
+            <a href="../index.html" class="brand">
+                <div class="brand-icon">C</div>
+                <div class="brand-name">Test 1 Clinicue</div>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Back Navigation -->
+        <a href="../index.html" class="back-nav">← Back to Dashboard</a>
+
+        <!-- Header Block -->
+        <section class="procedure-header">
+            <div class="procedure-title-section">
+                <h1>Intravenous Cannulation</h1>
+                <p class="procedure-subtitle">Revision of venipuncture site selection, sterile skin preparation, proper insertion angle, flashback checks, and securing.</p>
+            </div>
+            
+            <!-- Progress Tracker -->
+            <div class="glass" style="padding: 16px 24px; border-radius: var(--border-radius-md); min-width: 200px;">
+                <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; font-weight: 500;">
+                    <span>Revision Progress</span>
+                    <span id="procedure-progress-pct" style="color: var(--accent); font-weight: 700;">0%</span>
+                </div>
+                <div style="background: var(--border-color); height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div id="procedure-progress-bar" style="width: 0%; height: 100%; background: var(--accent); transition: var(--transition-smooth);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mode Switcher Tabs -->
+        <nav class="mode-tabs" aria-label="Study modes">
+            <button class="mode-tab active" data-mode="audio" id="tab-audio">🎧 Audio Revision</button>
+            <button class="mode-tab" data-mode="pictorial" id="tab-pictorial">🖼️ Pictorial Guide</button>
+            <button class="mode-tab" data-mode="combined" id="tab-combined">🎛️ Combined Media</button>
+        </nav>
+
+        <!-- 1. AUDIO MODE VIEW -->
+        <section class="mode-view active" id="audio-view">
+            <div class="audio-deck glass" id="audio-deck-element">
+                <div class="deck-glow"></div>
+                <div class="cassette-box">
+                    <div class="disc-icon">
+                        <div class="disc-inner"></div>
+                    </div>
+                </div>
+                <div class="track-info">
+                    <h2 class="track-title">Intravenous Cannulation</h2>
+                    <p class="track-artist">Narrated Revision &bull; Ambient Backing Track</p>
+                </div>
+                <div class="deck-controls">
+                    <!-- Progress Bar -->
+                    <div class="progress-slider-container">
+                        <span id="audio-time-current">0:00</span>
+                        <input type="range" class="progress-slider" id="audio-progress" min="0" max="100" value="0">
+                        <span id="audio-time-total">Step-by-Step</span>
+                    </div>
+                    <!-- Play buttons -->
+                    <div class="control-buttons">
+                        <button class="control-btn" id="audio-prev-btn" style="display:none;" aria-label="Previous step">⏮️</button>
+                        <button class="control-btn btn-play" id="audio-play-btn" aria-label="Play narration">▶️</button>
+                        <button class="control-btn" id="audio-next-btn" style="display:none;" aria-label="Next step">⏭️</button>
+                    </div>
+                    <!-- Background track volume -->
+                    <label class="sound-toggle-label" for="audio-volume">
+                        🎵 Clinical Background Ambient Track Volume:
+                        <input type="range" id="audio-volume" min="0" max="0.5" step="0.05" value="0.15" style="width: 100px;">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PICTORIAL MODE VIEW -->
+        <section class="mode-view" id="pictorial-view">
+            <div class="pictorial-guide">
+                <div class="guide-hero glass">
+                    <img src="../media/images/intravenous-cannulation.jpg" alt="Sterile IV Cannulation Procedure visual guide">
+                </div>
+                
+                <h2 style="font-family: var(--font-heading); font-size: 24px; font-weight: 700; margin-bottom: 24px;">Revision Checklist</h2>
+                <div class="step-timeline" id="checklist-steps-container">
+                    <!-- Steps will be generated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. COMBINED MODE VIEW -->
+        <section class="mode-view" id="combined-view">
+            <div class="combined-split">
+                <!-- Video block -->
+                <div class="video-player-wrapper">
+                    <video id="procedure-video-element" controls preload="metadata">
+                        <source src="../media/video/intravenous-cannulation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Synced Interactive Show block -->
+                <div class="interactive-show-wrapper glass">
+                    <div class="show-header">
+                        <span class="show-title">Audio-Slideshow revision</span>
+                        <span class="show-steps-tracker" id="slide-tracker">Step 1 of 5</span>
+                    </div>
+                    <div class="show-body">
+                        <div class="show-slide-num" id="slide-number">01</div>
+                        <div class="show-slide-text" id="slide-text">
+                            <!-- Text will load here -->
+                        </div>
+                    </div>
+                    <div class="show-controls">
+                        <div style="display: flex; gap: 12px; justify-content: space-between;">
+                            <button class="btn-secondary" id="combined-prev-btn" style="flex: 1;">◀ Previous</button>
+                            <button class="btn-secondary" id="combined-next-btn" style="flex: 1;">Next ▶</button>
+                        </div>
+                        <button class="btn-primary interactive-play-btn" id="combined-play-btn">▶️ Start Auto Guide</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Hidden audio element for ambient backing track -->
+    <audio id="ambient-audio-player" src="../media/audio/intravenous-cannulation.mp3" preload="metadata"></audio>
+
+    <footer class="glass" style="margin-top: 64px;">
+        <div class="container">
+            <p>&copy; 2026 Test 1 Clinicue. Designed for Nursing Revision. Practise safely under clinical supervision.</p>
+        </div>
+    </footer>
+
+    <!-- Shared Modules -->
+    <script src="../js/shared.js"></script>
+    <script src="../js/procedure-init.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const config = {
+                slug: 'intravenous-cannulation',
+                totalSteps: 5,
+                steps: [
+                    "Gather Equipment & Select Site",
+                    "Aseptic Prep",
+                    "Venipuncture",
+                    "Advance Cannula",
+                    "Secure & Flush"
+                ],
+                stepDescriptions: [
+                    "Explain procedure, apply tourniquet, and identify a suitable vein (e.g., cephalic or median cubital vein).",
+                    "Clean the injection site with 2% chlorhexidine in 70% isopropyl alcohol for 30 seconds using friction, and allow it to dry completely.",
+                    "Anchor the vein, insert the cannula bevel up at a 15-30 degree angle, and observe for blood flashback in the chamber.",
+                    "Lower the angle slightly, advance the needle 1-2mm further, then slide the plastic cannula off the needle into the vein.",
+                    "Release the tourniquet, apply pressure above the cannula tip, withdraw the needle safely, attach the saline flush to test patency, and secure with a transparent dressing."
+                ]
+            };
+
+            // Initialize Procedure Page Engine
+            window.initProcedurePage(config);
+        });
+    </script>
+</body>
+</html>

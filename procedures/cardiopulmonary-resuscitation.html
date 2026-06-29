@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardiopulmonary Resuscitation Revision - Test 1 Clinicue</title>
+    <meta name="description" content="Quick multimedia-rich revision guide for the CPR procedure. Learn key steps with audio, pictures and video.">
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+    <header class="glass">
+        <div class="container navbar">
+            <a href="../index.html" class="brand">
+                <div class="brand-icon">C</div>
+                <div class="brand-name">Test 1 Clinicue</div>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle theme">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Back Navigation -->
+        <a href="../index.html" class="back-nav">← Back to Dashboard</a>
+
+        <!-- Header Block -->
+        <section class="procedure-header">
+            <div class="procedure-title-section">
+                <h1>Cardiopulmonary Resuscitation (CPR)</h1>
+                <p class="procedure-subtitle">Review emergency cardiac life support steps, 30:2 compression-to-ventilation ratio, and AED safety operating procedures.</p>
+            </div>
+            
+            <!-- Progress Tracker -->
+            <div class="glass" style="padding: 16px 24px; border-radius: var(--border-radius-md); min-width: 200px;">
+                <div style="display: flex; justify-content: space-between; font-size: 14px; margin-bottom: 8px; font-weight: 500;">
+                    <span>Revision Progress</span>
+                    <span id="procedure-progress-pct" style="color: var(--accent); font-weight: 700;">0%</span>
+                </div>
+                <div style="background: var(--border-color); height: 8px; border-radius: 4px; overflow: hidden;">
+                    <div id="procedure-progress-bar" style="width: 0%; height: 100%; background: var(--accent); transition: var(--transition-smooth);"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mode Switcher Tabs -->
+        <nav class="mode-tabs" aria-label="Study modes">
+            <button class="mode-tab active" data-mode="audio" id="tab-audio">🎧 Audio Revision</button>
+            <button class="mode-tab" data-mode="pictorial" id="tab-pictorial">🖼️ Pictorial Guide</button>
+            <button class="mode-tab" data-mode="combined" id="tab-combined">🎛️ Combined Media</button>
+        </nav>
+
+        <!-- 1. AUDIO MODE VIEW -->
+        <section class="mode-view active" id="audio-view">
+            <div class="audio-deck glass" id="audio-deck-element">
+                <div class="deck-glow"></div>
+                <div class="cassette-box">
+                    <div class="disc-icon">
+                        <div class="disc-inner"></div>
+                    </div>
+                </div>
+                <div class="track-info">
+                    <h2 class="track-title">Cardiopulmonary Resuscitation</h2>
+                    <p class="track-artist">Narrated Revision &bull; Ambient Backing Track</p>
+                </div>
+                <div class="deck-controls">
+                    <!-- Progress Bar -->
+                    <div class="progress-slider-container">
+                        <span id="audio-time-current">0:00</span>
+                        <input type="range" class="progress-slider" id="audio-progress" min="0" max="100" value="0">
+                        <span id="audio-time-total">Step-by-Step</span>
+                    </div>
+                    <!-- Play buttons -->
+                    <div class="control-buttons">
+                        <button class="control-btn" id="audio-prev-btn" style="display:none;" aria-label="Previous step">⏮️</button>
+                        <button class="control-btn btn-play" id="audio-play-btn" aria-label="Play narration">▶️</button>
+                        <button class="control-btn" id="audio-next-btn" style="display:none;" aria-label="Next step">⏭️</button>
+                    </div>
+                    <!-- Background track volume -->
+                    <label class="sound-toggle-label" for="audio-volume">
+                        🎵 Clinical Background Ambient Track Volume:
+                        <input type="range" id="audio-volume" min="0" max="0.5" step="0.05" value="0.15" style="width: 100px;">
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PICTORIAL MODE VIEW -->
+        <section class="mode-view" id="pictorial-view">
+            <div class="pictorial-guide">
+                <div class="guide-hero glass">
+                    <img src="../media/images/cardiopulmonary-resuscitation.jpg" alt="Sterile CPR Procedure visual guide">
+                </div>
+                
+                <h2 style="font-family: var(--font-heading); font-size: 24px; font-weight: 700; margin-bottom: 24px;">Revision Checklist</h2>
+                <div class="step-timeline" id="checklist-steps-container">
+                    <!-- Steps will be generated here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. COMBINED MODE VIEW -->
+        <section class="mode-view" id="combined-view">
+            <div class="combined-split">
+                <!-- Video block -->
+                <div class="video-player-wrapper">
+                    <video id="procedure-video-element" controls preload="metadata">
+                        <source src="../media/video/cardiopulmonary-resuscitation.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+
+                <!-- Synced Interactive Show block -->
+                <div class="interactive-show-wrapper glass">
+                    <div class="show-header">
+                        <span class="show-title">Audio-Slideshow revision</span>
+                        <span class="show-steps-tracker" id="slide-tracker">Step 1 of 5</span>
+                    </div>
+                    <div class="show-body">
+                        <div class="show-slide-num" id="slide-number">01</div>
+                        <div class="show-slide-text" id="slide-text">
+                            <!-- Text will load here -->
+                        </div>
+                    </div>
+                    <div class="show-controls">
+                        <div style="display: flex; gap: 12px; justify-content: space-between;">
+                            <button class="btn-secondary" id="combined-prev-btn" style="flex: 1;">◀ Previous</button>
+                            <button class="btn-secondary" id="combined-next-btn" style="flex: 1;">Next ▶</button>
+                        </div>
+                        <button class="btn-primary interactive-play-btn" id="combined-play-btn">▶️ Start Auto Guide</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Hidden audio element for ambient backing track -->
+    <audio id="ambient-audio-player" src="../media/audio/cardiopulmonary-resuscitation.mp3" preload="metadata"></audio>
+
+    <footer class="glass" style="margin-top: 64px;">
+        <div class="container">
+            <p>&copy; 2026 Test 1 Clinicue. Designed for Nursing Revision. Practise safely under clinical supervision.</p>
+        </div>
+    </footer>
+
+    <!-- Shared Modules -->
+    <script src="../js/shared.js"></script>
+    <script src="../js/procedure-init.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const config = {
+                slug: 'cardiopulmonary-resuscitation',
+                totalSteps: 5,
+                steps: [
+                    "Scene Safety & Responsiveness",
+                    "Activate Emergency Response",
+                    "High-Quality Chest Compressions",
+                    "Rescue Breaths",
+                    "AED Operation"
+                ],
+                stepDescriptions: [
+                    "Confirm scene safety, tap patient's shoulder and shout 'Are you okay?', and check breathing and pulse (max 10 seconds).",
+                    "Call for help, send someone to retrieve an AED, and contact emergency services immediately.",
+                    "Place heel of one hand on lower half of sternum, compress at depth of 2-2.4 inches, and speed of 100-120 compressions per minute.",
+                    "Perform head-tilt, chin-lift to open airway, and deliver 2 rescue breaths (1 second each) after every 30 compressions.",
+                    "Turn on the AED, apply pads to bare chest, follow vocal prompts, clear the patient during rhythm analysis, and deliver shock if advised."
+                ]
+            };
+
+            // Initialize Procedure Page Engine
+            window.initProcedurePage(config);
+        });
+    </script>
+</body>
+</html>

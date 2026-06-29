@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test 1 Clinicue - Clinical Revision Dashboard</title>
+    <meta name="description" content="Quick multimedia-rich revision dashboard for nursing students and professionals covering critical clinical procedures.">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="glass">
+        <div class="container navbar">
+            <a href="index.html" class="brand" id="brand-logo">
+                <div class="brand-icon">C</div>
+                <div class="brand-name">Test 1 Clinicue</div>
+            </a>
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme" id="theme-btn">☀️</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero-section">
+            <div class="hero-glow"></div>
+            <h1 class="hero-title">Master Clinical Procedures</h1>
+            <p class="hero-subtitle">High-fidelity revision guide for nursing students. Select a procedure to study with synchronized audio narration, pictorial guides, and combined media.</p>
+        </section>
+
+        <!-- Dynamic Statistics -->
+        <section class="stats-banner glass" id="stats-container">
+            <div class="stat-item">
+                <div class="stat-val" id="stat-progress-overall">0%</div>
+                <div class="stat-lbl">Overall Revision</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val" id="stat-completed-count">0 / 4</div>
+                <div class="stat-lbl">Procedures Completed</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val" id="stat-checked-steps">0</div>
+                <div class="stat-lbl">Revision Steps Checked</div>
+            </div>
+        </section>
+
+        <!-- Procedures Grid -->
+        <section class="procedure-grid">
+            
+            <!-- Urinary Catheterisation -->
+            <article class="procedure-card glass" id="card-urinary-catheterisation">
+                <div class="card-img-wrapper">
+                    <img src="media/images/urinary-catheterisation.jpg" alt="Urinary Catheterisation setup showing sterile equipment" class="card-img">
+                    <span class="card-badge" id="badge-urinary-catheterisation">Not Started</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Urinary Catheterisation</h2>
+                    <p class="card-desc">Revision of sterile urinary insertion protocols, patient positioning, cleansing guidelines, and drainage bag securement.</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--text-muted);">
+                            <span>Progress</span>
+                            <span id="progress-text-urinary-catheterisation" style="font-weight: 600; color: var(--accent);">0%</span>
+                        </div>
+                        <div style="background: var(--border-color); height: 6px; border-radius: 3px; overflow: hidden;">
+                            <div id="progress-bar-urinary-catheterisation" style="width: 0%; height: 100%; background: var(--accent); transition: var(--transition-smooth);"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="meta-item">⏱️ <span>6 Steps</span></div>
+                        <div class="meta-item">🎧 <span>Audio + Pictorial</span></div>
+                    </div>
+                    <a href="procedures/urinary-catheterisation.html" class="btn-primary" id="btn-revise-urinary-catheterisation">Start Revision</a>
+                </div>
+            </article>
+
+            <!-- Cardiopulmonary Resuscitation -->
+            <article class="procedure-card glass" id="card-cardiopulmonary-resuscitation">
+                <div class="card-img-wrapper">
+                    <img src="media/images/cardiopulmonary-resuscitation.jpg" alt="Hands performing CPR compressions on mannequin chest" class="card-img">
+                    <span class="card-badge" id="badge-cardiopulmonary-resuscitation">Not Started</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Cardiopulmonary Resuscitation</h2>
+                    <p class="card-desc">Review emergency cardiac life support steps, 30:2 compression-to-ventilation ratio, and AED safety operating procedures.</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--text-muted);">
+                            <span>Progress</span>
+                            <span id="progress-text-cardiopulmonary-resuscitation" style="font-weight: 600; color: var(--accent);">0%</span>
+                        </div>
+                        <div style="background: var(--border-color); height: 6px; border-radius: 3px; overflow: hidden;">
+                            <div id="progress-bar-cardiopulmonary-resuscitation" style="width: 0%; height: 100%; background: var(--accent); transition: var(--transition-smooth);"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="meta-item">⏱️ <span>5 Steps</span></div>
+                        <div class="meta-item">🎧 <span>Audio + Video</span></div>
+                    </div>
+                    <a href="procedures/cardiopulmonary-resuscitation.html" class="btn-primary" id="btn-revise-cardiopulmonary-resuscitation">Start Revision</a>
+                </div>
+            </article>
+
+            <!-- Intravenous Cannulation -->
+            <article class="procedure-card glass" id="card-intravenous-cannulation">
+                <div class="card-img-wrapper">
+                    <img src="media/images/intravenous-cannulation.jpg" alt="Sterile cannula insertion into arm vein diagram" class="card-img">
+                    <span class="card-badge" id="badge-intravenous-cannulation">Not Started</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Intravenous Cannulation</h2>
+                    <p class="card-desc">Revision of venipuncture site selection, sterile skin preparation, proper insertion angle, flashback checks, and securing.</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--text-muted);">
+                            <span>Progress</span>
+                            <span id="progress-text-intravenous-cannulation" style="font-weight: 600; color: var(--accent);">0%</span>
+                        </div>
+                        <div style="background: var(--border-color); height: 6px; border-radius: 3px; overflow: hidden;">
+                            <div id="progress-bar-intravenous-cannulation" style="width: 0%; height: 100%; background: var(--accent); transition: var(--transition-smooth);"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="meta-item">⏱️ <span>5 Steps</span></div>
+                        <div class="meta-item">🎧 <span>Audio + Pictorial</span></div>
+                    </div>
+                    <a href="procedures/intravenous-cannulation.html" class="btn-primary" id="btn-revise-intravenous-cannulation">Start Revision</a>
+                </div>
+            </article>
+
+            <!-- Sterile Wound Dressing -->
+            <article class="procedure-card glass" id="card-sterile-wound-dressing">
+                <div class="card-img-wrapper">
+                    <img src="media/images/sterile-wound-dressing.jpg" alt="Aseptic field wound dressing tray and forceps" class="card-img">
+                    <span class="card-badge" id="badge-sterile-wound-dressing">Not Started</span>
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Sterile Wound Dressing</h2>
+                    <p class="card-desc">Step-by-step revision of wound assessment, removing old dressings, establishing an aseptic field, and cleansing rules.</p>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <div style="display: flex; justify-content: space-between; font-size: 12px; margin-bottom: 6px; color: var(--text-muted);">
+                            <span>Progress</span>
+                            <span id="progress-text-sterile-wound-dressing" style="font-weight: 600; color: var(--accent);">0%</span>
+                        </div>
+                        <div style="background: var(--border-color); height: 6px; border-radius: 3px; overflow: hidden;">
+                            <div id="progress-bar-sterile-wound-dressing" style="width: 0%; height: 100%; background: var(--accent); transition: var(--transition-smooth);"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-meta">
+                        <div class="meta-item">⏱️ <span>5 Steps</span></div>
+                        <div class="meta-item">🎧 <span>Audio + Pictorial</span></div>
+                    </div>
+                    <a href="procedures/sterile-wound-dressing.html" class="btn-primary" id="btn-revise-sterile-wound-dressing">Start Revision</a>
+                </div>
+            </article>
+
+        </section>
+    </main>
+
+    <footer class="glass">
+        <div class="container">
+            <p>&copy; 2026 Test 1 Clinicue. Designed for Nursing Revision. Practise safely under clinical supervision.</p>
+        </div>
+    </footer>
+
+    <!-- Core Module Import -->
+    <script src="js/shared.js"></script>
+    <script>
+        // Procedure configurations
+        const PROCEDURES = [
+            { slug: 'urinary-catheterisation', totalSteps: 6 },
+            { slug: 'cardiopulmonary-resuscitation', totalSteps: 5 },
+            { slug: 'intravenous-cannulation', totalSteps: 5 },
+            { slug: 'sterile-wound-dressing', totalSteps: 5 }
+        ];
+
+        function updateDashboardUI() {
+            let totalCheckedSteps = 0;
+            let grandTotalSteps = 0;
+            let completedCount = 0;
+
+            PROCEDURES.forEach(proc => {
+                const info = Clinicue.getProcedureProgress(proc.slug, proc.totalSteps);
+                const pct = info.percent;
+                const checkedCount = info.checkedSteps.length;
+
+                totalCheckedSteps += checkedCount;
+                grandTotalSteps += proc.totalSteps;
+                if (info.completed) {
+                    completedCount++;
+                }
+
+                // Update individual elements
+                const badge = document.getElementById(`badge-${proc.slug}`);
+                const progressBar = document.getElementById(`progress-bar-${proc.slug}`);
+                const progressText = document.getElementById(`progress-text-${proc.slug}`);
+                const btn = document.getElementById(`btn-revise-${proc.slug}`);
+
+                if (badge) {
+                    if (checkedCount === 0) {
+                        badge.textContent = 'Not Started';
+                        badge.className = 'card-badge status-not-started';
+                    } else if (pct === 100) {
+                        badge.textContent = 'Completed';
+                        badge.className = 'card-badge status-completed';
+                    } else {
+                        badge.textContent = 'In Progress';
+                        badge.className = 'card-badge status-revision';
+                    }
+                }
+
+                if (progressBar) {
+                    progressBar.style.width = `${pct}%`;
+                }
+
+                if (progressText) {
+                    progressText.textContent = `${pct}%`;
+                }
+
+                if (btn) {
+                    btn.textContent = checkedCount === 0 ? 'Start Revision' : (pct === 100 ? 'Revise Again' : 'Resume Revision');
+                }
+            });
+
+            // Update stats
+            const overallPct = grandTotalSteps > 0 ? Math.round((totalCheckedSteps / grandTotalSteps) * 100) : 0;
+            const overallPctEl = document.getElementById('stat-progress-overall');
+            const completedCountEl = document.getElementById('stat-completed-count');
+            const checkedStepsEl = document.getElementById('stat-checked-steps');
+
+            if (overallPctEl) overallPctEl.textContent = `${overallPct}%`;
+            if (completedCountEl) completedCountEl.textContent = `${completedCount} / ${PROCEDURES.length}`;
+            if (checkedStepsEl) checkedStepsEl.textContent = totalCheckedSteps;
+        }
+
+        // Initialize dashboard UI on load and update on dynamic progress events
+        document.addEventListener('DOMContentLoaded', updateDashboardUI);
+        window.addEventListener('progressUpdated', updateDashboardUI);
+    </script>
+</body>
+</html>
