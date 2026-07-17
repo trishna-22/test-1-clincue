@@ -1,0 +1,4 @@
+pyttsx3
+pygame-ce
+pillow
+opencv-python

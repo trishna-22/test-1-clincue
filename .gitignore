@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+desktop_app/clinicue_progress.json
+desktop_app/clinicue_settings.json
