@@ -1,4 +1,4 @@
-// Test 1 Clinicue - Shared Core Module
+// ClinCue - Shared Core Module
 (function() {
     // Theme Manager
     const initTheme = () => {
@@ -8,13 +8,13 @@
         // Add theme button event listener if button exists
         const btn = document.getElementById('theme-toggle');
         if (btn) {
-            btn.innerHTML = savedTheme === 'dark' ? '☀️' : '🌙';
+            btn.textContent = savedTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
             btn.addEventListener('click', () => {
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
                 document.documentElement.setAttribute('data-theme', newTheme);
                 localStorage.setItem('clinicue-theme', newTheme);
-                btn.innerHTML = newTheme === 'dark' ? '☀️' : '🌙';
+                btn.textContent = newTheme === 'dark' ? 'Light Mode' : 'Dark Mode';
             });
         }
     };

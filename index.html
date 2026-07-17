@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test 1 Clinicue - Clinical Revision Dashboard</title>
+    <title>ClinCue - Clinical Revision Dashboard</title>
     <meta name="description" content="Quick multimedia-rich revision dashboard for nursing students and professionals covering critical clinical procedures.">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="manifest" href="manifest.json">
@@ -19,10 +19,10 @@
         <div class="container navbar">
             <a href="index.html" class="brand" id="brand-logo">
                 <div class="brand-icon">C</div>
-                <div class="brand-name">Test 1 Clinicue</div>
+                <div class="brand-name">ClinCue</div>
             </a>
             <div class="nav-actions">
-                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme" id="theme-btn">☀️</button>
+                <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle light/dark theme">Light Mode</button>
             </div>
         </div>
     </header>
@@ -30,24 +30,8 @@
     <main class="container">
         <section class="hero-section">
             <div class="hero-glow"></div>
-            <h1 class="hero-title">Master Clinical Procedures</h1>
-            <p class="hero-subtitle">High-fidelity revision guide for nursing students. Select a procedure to study with synchronized audio narration, pictorial guides, and combined media.</p>
-        </section>
-
-        <!-- Dynamic Statistics -->
-        <section class="stats-banner glass" id="stats-container">
-            <div class="stat-item">
-                <div class="stat-val" id="stat-progress-overall">0%</div>
-                <div class="stat-lbl">Overall Revision</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-val" id="stat-completed-count">0 / 4</div>
-                <div class="stat-lbl">Procedures Completed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-val" id="stat-checked-steps">0</div>
-                <div class="stat-lbl">Revision Steps Checked</div>
-            </div>
+            <h1 class="hero-title">Clinical Procedure Revision</h1>
+            <p class="hero-subtitle">A structured revision guide for nursing students, covering core clinical procedures with narrated instruction, pictorial checklists, and video reference.</p>
         </section>
 
         <!-- Procedures Grid -->
@@ -74,8 +58,8 @@
                     </div>
 
                     <div class="card-meta">
-                        <div class="meta-item">⏱️ <span>6 Steps</span></div>
-                        <div class="meta-item">🎧 <span>Audio + Pictorial</span></div>
+                        <div class="meta-item"><span>6 Steps</span></div>
+                        <div class="meta-item"><span>Audio + Pictorial</span></div>
                     </div>
                     <a href="procedures/urinary-catheterisation.html" class="btn-primary" id="btn-revise-urinary-catheterisation">Start Revision</a>
                 </div>
@@ -102,8 +86,8 @@
                     </div>
 
                     <div class="card-meta">
-                        <div class="meta-item">⏱️ <span>5 Steps</span></div>
-                        <div class="meta-item">🎧 <span>Audio + Video</span></div>
+                        <div class="meta-item"><span>5 Steps</span></div>
+                        <div class="meta-item"><span>Audio + Video</span></div>
                     </div>
                     <a href="procedures/cardiopulmonary-resuscitation.html" class="btn-primary" id="btn-revise-cardiopulmonary-resuscitation">Start Revision</a>
                 </div>
@@ -130,8 +114,8 @@
                     </div>
 
                     <div class="card-meta">
-                        <div class="meta-item">⏱️ <span>5 Steps</span></div>
-                        <div class="meta-item">🎧 <span>Audio + Pictorial</span></div>
+                        <div class="meta-item"><span>5 Steps</span></div>
+                        <div class="meta-item"><span>Audio + Pictorial</span></div>
                     </div>
                     <a href="procedures/intravenous-cannulation.html" class="btn-primary" id="btn-revise-intravenous-cannulation">Start Revision</a>
                 </div>
@@ -158,8 +142,8 @@
                     </div>
 
                     <div class="card-meta">
-                        <div class="meta-item">⏱️ <span>5 Steps</span></div>
-                        <div class="meta-item">🎧 <span>Audio + Pictorial</span></div>
+                        <div class="meta-item"><span>5 Steps</span></div>
+                        <div class="meta-item"><span>Audio + Pictorial</span></div>
                     </div>
                     <a href="procedures/sterile-wound-dressing.html" class="btn-primary" id="btn-revise-sterile-wound-dressing">Start Revision</a>
                 </div>
@@ -170,7 +154,7 @@
 
     <footer class="glass">
         <div class="container">
-            <p>&copy; 2026 Test 1 Clinicue. Designed for Nursing Revision. Practise safely under clinical supervision.</p>
+            <p>&copy; 2026 ClinCue. Designed for Nursing Revision. Practise safely under clinical supervision.</p>
         </div>
     </footer>
 
@@ -186,20 +170,10 @@
         ];
 
         function updateDashboardUI() {
-            let totalCheckedSteps = 0;
-            let grandTotalSteps = 0;
-            let completedCount = 0;
-
             PROCEDURES.forEach(proc => {
                 const info = Clinicue.getProcedureProgress(proc.slug, proc.totalSteps);
                 const pct = info.percent;
                 const checkedCount = info.checkedSteps.length;
-
-                totalCheckedSteps += checkedCount;
-                grandTotalSteps += proc.totalSteps;
-                if (info.completed) {
-                    completedCount++;
-                }
 
                 // Update individual elements
                 const badge = document.getElementById(`badge-${proc.slug}`);
@@ -232,16 +206,6 @@
                     btn.textContent = checkedCount === 0 ? 'Start Revision' : (pct === 100 ? 'Revise Again' : 'Resume Revision');
                 }
             });
-
-            // Update stats
-            const overallPct = grandTotalSteps > 0 ? Math.round((totalCheckedSteps / grandTotalSteps) * 100) : 0;
-            const overallPctEl = document.getElementById('stat-progress-overall');
-            const completedCountEl = document.getElementById('stat-completed-count');
-            const checkedStepsEl = document.getElementById('stat-checked-steps');
-
-            if (overallPctEl) overallPctEl.textContent = `${overallPct}%`;
-            if (completedCountEl) completedCountEl.textContent = `${completedCount} / ${PROCEDURES.length}`;
-            if (checkedStepsEl) checkedStepsEl.textContent = totalCheckedSteps;
         }
 
         // Initialize dashboard UI on load and update on dynamic progress events

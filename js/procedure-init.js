@@ -1,4 +1,4 @@
-// Test 1 Clinicue - Procedure Initialization and UI Sync Engine
+// ClinCue - Procedure Initialization and UI Sync Engine
 (function() {
     window.initProcedurePage = function(config) {
         const { slug, totalSteps, steps, stepDescriptions } = config;
