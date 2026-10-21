@@ -232,35 +232,5 @@
     </script>
     
 <script>
-    (() => {
-        const preloader = document.getElementById('preloader');
-        if (!preloader) return;
-
-        const reducedMotion = window.matchMedia(
-            '(prefers-reduced-motion: reduce)'
-        ).matches;
-
-        const displayTime = reducedMotion ? 300 : 2600;
-
-        const hidePreloader = () => {
-            preloader.classList.add('preloader-hidden');
-
-            window.setTimeout(() => {
-                preloader.remove();
-            }, 700);
-        };
-
-        if (document.readyState === 'complete') {
-            window.setTimeout(hidePreloader, displayTime);
-        } else {
-            window.addEventListener('load', () => {
-                window.setTimeout(hidePreloader, displayTime);
-            }, { once: true });
-        }
-    })();
-</script>
-</body>
-</html>
-
 </body>
 </html>
