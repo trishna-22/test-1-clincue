@@ -890,4 +890,110 @@ footer {
     .procedure-title-section h1 {
         font-size: 32px;
     }
+    /* ClinCue Preloader */
+#preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-primary, #171717);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.7s ease, visibility 0.7s ease;
+}
+
+#preloader.preloader-hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+#preloader .loader {
+    width: 180px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+#preloader .image {
+    width: 76px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform-origin: bottom center;
+    animation: clinicue-rotate 3s ease-in-out forwards;
+}
+
+#preloader .loader-logo {
+    width: 68px;
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--accent, #d65a9e);
+    color: #fff;
+    font-size: 42px;
+    font-weight: 700;
+}
+
+#preloader .loader-name {
+    color: var(--text-primary, #fff);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: clinicue-name 3s ease forwards;
+}
+
+@keyframes clinicue-rotate {
+    0% {
+        transform: rotate(90deg);
+        opacity: 0;
+    }
+    35% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    65% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: rotate(-90deg);
+        opacity: 0;
+    }
+}
+
+@keyframes clinicue-name {
+    0%, 25% {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    40%, 75% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #preloader .image,
+    #preloader .loader-name {
+        animation-duration: 0.5s;
+    }
+
+    #preloader {
+        transition-duration: 0.2s;
+    }
+}
 }
